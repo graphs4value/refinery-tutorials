@@ -100,7 +100,8 @@ class Symlink extends File {
 
 Dir(resources).
 element(resources,img).
-!Dir(img).
+element(resources,link).
+target(link,img).
 
 
 scope node = 10.
