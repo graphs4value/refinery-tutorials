@@ -45,16 +45,30 @@ scope node = 10.
 
 ![alt text](https://github.com/graphs4value/refinery-tutorials/blob/main/filesystem/fig2.png)
 
+### Partial models
 - Notice that the instance model elements are coexisting with the nodes representing the types
 
 - Check the disabled `equals` and `exist` predicates. check the visual annotation of those predicates in the visualization (dashed line, shadow).
 
 ![alt text](https://github.com/graphs4value/refinery-tutorials/blob/main/filesystem/fig3.png)
 
+### Information merging
+
+- for the object `img`, we did not specified if it is a directory or not. Therefore, it will be typically a folder.
+
+- If we want to state that img is not a directory, we need to a negative statement:
+```
+!Dir(img).
+```
+- Statements are merged with respect to the refinement relation of 4-valued logic.
+  
+- If we add, a statement both negatively and positively, it will create an inconsistency
+
+- Inconsistent models parts in a partial model typically make the problem trivially unsatisfiable.
+
+- However, the model can be saved if the inconsistent part may not exist...
 ## Scopes
 
 ## Metamodels
-
-## Instance models
 
 ## Constraints
