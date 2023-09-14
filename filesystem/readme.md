@@ -77,8 +77,33 @@ scope node = 10.
 !File(File::new).
 ```
 
+### Default values
+
+- a large amount of statements can be expressed by using ```*```.
+- the ```default``` keyword defines lower priority satements that need to be considered unless other statement specifies otherwise. No information merging is happening. 
+
 ## Scopes
 
 ## Metamodels
+
+```
+class FileSystem {
+    contains File[1] root
+}
+class File.
+class Dir extends File {
+    contains File[0..10] element
+}
+class Symlink extends File {
+    File[1] target
+}
+
+Dir(resources).
+element(resources,img).
+!Dir(img).
+
+
+scope node = 10.
+```
 
 ## Constraints
