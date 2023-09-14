@@ -45,7 +45,7 @@ scope node = 10.
 
 - Notice that the instance model elements are coexisting with the nodes representing the types
 
-- Check the disabled `equals` and `exist` oredicates.
+- Check the disabled `equals` and `exist` predicates. check the visual annotation of those predicates in the visualization (dashed line, shadow).
 
 ## Scopes
 
