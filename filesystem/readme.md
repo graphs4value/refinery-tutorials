@@ -46,7 +46,7 @@ scope node = 10.
 ![alt text](https://github.com/graphs4value/refinery-tutorials/blob/main/filesystem/fig2.png)
 
 ### Partial models
-- Notice that the instance model elements are coexisting with the nodes representing the types
+- Notice that the instance model elements are coexisting with ```<type>::new``` nodes representing the prototypes of newly created objects.
 
 - Check the disabled `equals` and `exist` predicates. check the visual annotation of those predicates in the visualization (dashed line, shadow).
 
@@ -72,6 +72,11 @@ scope node = 10.
 - Inconsistent models parts in a partial model typically make the problem trivially unsatisfiable.
 ![alt text](https://github.com/graphs4value/refinery-tutorials/blob/main/filesystem/fig4.png)
 - However, the model can be saved if the inconsistent part may not exist...
+
+```
+!File(File::new).
+```
+
 ## Scopes
 
 ## Metamodels
