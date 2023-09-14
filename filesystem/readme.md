@@ -148,7 +148,7 @@ target(link,img).
 pred hasReference(f) <-> target(_,f).
 error pred selfLoop(s) <-> target(s,s).
 
-// And and OR
+// And and =
 error pred emptyDir(d) <-> Dir(d),!element(d,_).
 pred importantFile(f) <-> target(l1,f), target(l2,f), l1!=l2.
 
