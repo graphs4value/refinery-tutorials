@@ -94,7 +94,7 @@ class File.
 class Dir extends File {
     contains File[0..10] element
 }
-class Symlink extends File {
+class SymLink extends File {
     File[1] target
 }
 
@@ -102,7 +102,6 @@ Dir(resources).
 element(resources,img).
 element(resources,link).
 target(link,img).
-
 
 scope node = 10.
 ```
