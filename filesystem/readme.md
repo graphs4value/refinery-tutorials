@@ -62,10 +62,15 @@ scope node = 10.
 ```
 - Statements are merged with respect to the refinement relation of 4-valued logic.
   
-- If we add, a statement both negatively and positively, it will create an inconsistency
+- If we add, a statement both negatively and positively, it will create an inconsistency:
+
+```
+ element(resources,img).
+!element(resources,img).
+```
 
 - Inconsistent models parts in a partial model typically make the problem trivially unsatisfiable.
-
+![alt text](https://github.com/graphs4value/refinery-tutorials/blob/main/filesystem/fig4.png)
 - However, the model can be saved if the inconsistent part may not exist...
 ## Scopes
 
