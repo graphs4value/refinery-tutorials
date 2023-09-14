@@ -22,7 +22,8 @@ scope node = 10.
 
 - Notice that the syntax is essentially identical to XCore.
 - Review the partial model visualization. You should get something like this:
-[![name]([link to image on GH](https://github.com/graphs4value/refinery-tutorials/blob/main/filesystem/fig1.png/raw))](link to your URL)
+  
+![alt text](https://github.com/graphs4value/refinery-tutorials/blob/main/filesystem/fig1.png)
 
 - Add some statements about a partial model:
 
@@ -38,14 +39,17 @@ class Dir extends File {
 Dir(resources).
 element(resources,img).
 File(img).
-//!Dir(img).
 
 scope node = 10.
 ```
 
+![alt text](https://github.com/graphs4value/refinery-tutorials/blob/main/filesystem/fig2.png)
+
 - Notice that the instance model elements are coexisting with the nodes representing the types
 
 - Check the disabled `equals` and `exist` predicates. check the visual annotation of those predicates in the visualization (dashed line, shadow).
+
+![alt text](https://github.com/graphs4value/refinery-tutorials/blob/main/filesystem/fig3.png)
 
 ## Scopes
 
