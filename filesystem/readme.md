@@ -107,3 +107,67 @@ scope node = 10.
 ```
 
 ## Constraints
+
+- Add some simple constraints:
+
+```
+// Simple constraints:
+pred hasReference(f) <-> target(_,f).
+error pred selfLoop(s) <-> target(s,s).
+target(x,x).
+```
+
+- There are no empty directories in a git repository, so forbid it!
+
+```
+error pred emptyDir(d) <-> Dir(d),!element(d,_).
+```
+
+- All constraints
+```
+class FileSystem {
+    contains File[1] root
+}
+class File.
+class Dir extends File {
+    contains File[0..10] element
+}
+class SymLink extends File {
+    File[1] target
+}
+
+Dir(resources).
+element(resources,img).
+!Dir(img).
+element(resources,link).
+target(link,img).
+
+
+
+// Simple constraints:
+pred hasReference(f) <-> target(_,f).
+error pred selfLoop(s) <-> target(s,s).
+
+// And and OR
+error pred emptyDir(d) <-> Dir(d),!element(d,_).
+pred importantFile(f) <-> target(l1,f), target(l2,f), l1!=l2.
+
+// Transitive closure, and 
+pred containsFile(fs, file) <->
+    FileSystem(fs),
+    root(fs,file)
+;
+    FileSystem(fs),
+    root(fs, rootDir),
+    element+(rootDir, file).
+
+// Predicate reuse
+error conflictBetweenTwoFileSystem(fs1, fs2, l, t) <->
+    containsFile(fs1, l),
+    containsFile(fs2, t),
+    fs1 != fs2,
+    target(l,t).
+    
+
+scope node = 40..50, FileSystem = 2, importantFile = 1..*.
+```
