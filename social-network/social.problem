@@ -1,0 +1,23 @@
+// Metamodel
+class Person {
+    contains Post posts opposite author
+    Person friend opposite friend
+}
+
+class Post {
+    container Person[0..1] author opposite posts
+    Post replyTo
+}
+
+// Constraints
+error replyToNotFriend(Post x, Post y) <->
+    replyTo(x, y),
+    author(x, xAuthor),
+    author(y, yAuthor),
+    xAuthor != yAuthor,
+    !friend(xAuthor, yAuthor).
+
+error replyToCycle(Post x) <-> replyTo+(x, x).
+
+// Scope
+scope node = 100.

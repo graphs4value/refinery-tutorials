@@ -1,0 +1,67 @@
+abstract class FunctionalElement {
+    contains FunctionalInterface interface opposite element
+    container Function parent opposite subElements
+}
+
+class FunctionalArchitectureModel {
+    contains FunctionalElement[] rootElements
+}
+
+class Function extends FunctionalElement {
+    contains FunctionalElement[] subElements opposite parent
+}
+
+class FAMTerminator {
+    container FunctionalData data opposite terminator
+}
+
+class InformationLink {
+    container FunctionalOutput from opposite outgoingLinks
+    FunctionalInput[1] to opposite IncomingLinks
+}
+
+class FunctionalInterface {
+    contains FunctionalData[] data opposite interface
+    container FunctionalElement element opposite interface
+}
+
+class FunctionalInput extends FunctionalData {
+    InformationLink[] IncomingLinks opposite to
+}
+
+class FunctionalOutput extends FunctionalData {
+    contains InformationLink[] outgoingLinks opposite from
+}
+
+abstract class FunctionalData {
+    contains FAMTerminator terminator opposite data
+    container FunctionalInterface interface opposite data
+}
+
+error terminatorAndInformation(FAMTerminator t, InformationLink i) <->
+    outgoingLinks(Out, i),
+    terminator(Out, t);
+    to(i, In),
+    terminator(In, t).
+
+pred hasRoot(Function F) <->
+rootElements(_Model, F).
+
+pred hasInt(Function F) <->
+    !parent(_Child, F),
+!rootElements(_Model, F).
+
+pred hasLeaf(Function Fnction) <->
+parent(F, _Par),
+parent(_Child, F).
+
+error noRoot(FunctionalArchitectureModel fam) <->
+    !hasRoot(_).
+
+error noInt(FunctionalArchitectureModel fam) <->
+    !hasInt(_).
+
+error noLeaf(FunctionalArchitectureModel fam) <->
+    !hasLeaf(_).
+
+scope node = 100, FunctionalArchitectureModel = 1.

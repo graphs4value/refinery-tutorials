@@ -1,0 +1,15 @@
+class Filesystem {
+    contains Entry root
+}
+
+abstract class Entry.
+
+class Directory extends Entry {
+    contains Entry[] entries
+}
+
+class File extends Entry.
+
+Filesystem(fs).
+
+scope Filesystem += 0, node = 100.
