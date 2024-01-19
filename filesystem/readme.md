@@ -70,7 +70,9 @@ scope node = 10.
 ```
 
 - Inconsistent models parts in a partial model typically make the problem trivially unsatisfiable.
+
 ![alt text](https://github.com/graphs4value/refinery-tutorials/blob/main/filesystem/fig4.png)
+
 - However, the model can be saved if the inconsistent part may not exist...
 
 ```
